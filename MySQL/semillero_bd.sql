@@ -2,7 +2,7 @@
 
 --CREATE DATABASE semillero;
 
-USE semillero;
+--USE semillero;
 
 --INITIAL CLEAR TABLES
 DROP TABLE IF EXISTS vehiculos;
