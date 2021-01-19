@@ -1,9 +1,15 @@
 //SETTING THE ROUTES FOR THE VEHICULOS TABLE
 
 const {Router} = require('express');
+const {cnn_mysql} = require('../config/database');
 const router = Router();
 
 router.get('/vehiculo',(req,res)=>{
+    cnn_mysql.query(`SELECT * FROM vehiculos`, (error, resulset, fields)=>{
+        console.log(error);
+        console.log(resulset);
+        console.log(fields);
+    })
     res.json([{placa: "QWE783"}])
 });
 
