@@ -29,7 +29,7 @@ CREATE TABLE vehiculos(
 
 CREATE TABLE tipo_marca(
     id_marca INT(5) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    desc_marca VARCHAR(255) UNIQUE NOT NULL COMMENT 'Descripción de la marca. Este campo podría recibir valores NULL si existiera otro canmpo como nombre_marca. Pero debido a que no se cuenta en el modelo con este canmpo, es estrictamente necesario dentro del funcionamiento y análisis del SGBD.',
+    desc_marca VARCHAR(255) NOT NULL COMMENT 'Descripción de la marca. Este campo podría recibir valores NULL si existiera otro canmpo como nombre_marca. Pero debido a que no se cuenta en el modelo con este canmpo, es estrictamente necesario dentro del funcionamiento y análisis del SGBD.',
     activo ENUM('S','N') NOT NULL    
 );
 

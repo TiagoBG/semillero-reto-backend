@@ -15,9 +15,11 @@ require('dotenv').config();
 
 //USING MORGAN MIDDLEWARES
 app.use(morgan('dev'));
+app.use(express.json());
 
 //ROUTES
 app.use('/api', vehiculos);
+
 
 //PAGES AND RENDERING IN DOM
 app.get('/',(req, res)=>{
@@ -27,11 +29,11 @@ app.get('/',(req, res)=>{
 app.get('/vehiculos',(req, res)=>{
     let vehiculos = []
     vehiculos.push({num_placa: "ARB456", id_linea: "3", modelo:"2010", fecha_ven_seguro:"2021-05-28", fecha_ven_tecnomecanica:"2021-02-19", fecha_ven_contratodo:"2021-07-12"})
-    res.json(vehiculos)
+    res.json(vehiculos);
 });
 
-//INITIALIZING THE SERVER IN PORT 5000
-app.set('port', process.env.PORT || 5000)
+//INITIALIZING THE SERVER IN THE SET PORT 
+app.set('port', process.env.PORT || 8083)
 app.listen(app.get('port'), ()=>{
     console.log(`Server running at port ${app.get('port')}!!`);
 });
