@@ -81,6 +81,18 @@ router.post('/vehiculo', async(req,res)=>{
     }
 });
 
+//CHECK THE MODELO RANGE
+/* router.get('/filter_modelo',(req,res)=>{
+    cnn_mysql.query(`SELECT * FROM vehiculos WHERE fecha_ven_seguro BETWEEN '2021-03-01 00:00:00' AND '2021-06-31 23:59:59'`, (error, resulset, fields)=>{
+        if(error){
+            console.log(error)
+            return res.status(500).send('On no. Se presentó un error en la base de datos')
+        }else{
+            console.log(resulset.length);
+            return res.json(resulset);              
+        }
+    });      
+}); */
 
 router.put('/vehiculo/:id',(req,res)=>{
     

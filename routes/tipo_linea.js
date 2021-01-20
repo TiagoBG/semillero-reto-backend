@@ -62,9 +62,16 @@ router.post('/tipo_linea', async(req,res)=>{
     }
 });
 
-router.put('/tipo_linea/:id',(req,res)=>{
-    
-});
+//GET DESC_MARCA,DESC_LINEA AND QUANTITY
+router.get('/linea_marca', async(req,res)=>{
+    try{
+        const [rows] = await cnn_mysql.promise().query(`SELECT tipo_linea.id_linea, tipo_linea.desc_linea, tipo_linea.id_marca tipo_linea, tipo_marca.id_marca, tipo_marca.desc_marca tipo_marca, COUNT(tipo_marca.id_marca) AS cantidad FROM tipo_marca INNER JOIN tipo_linea USING(id_marca) GROUP BY tipo_linea.id_marca`)
+        console.log(rows)
+        res.json(rows)
+    }catch(e){
+        console.log(e)
+    }    
+    });   
 
 router.patch('/tipo_linea/:id',(req,res)=>{
     
