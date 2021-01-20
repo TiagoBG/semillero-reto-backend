@@ -19,7 +19,9 @@ app.use(express.json());
 
 //ROUTES
 app.use('/api', vehiculos);
-
+app.use('/api', tipo_marca);
+app.use('/api', tipo_linea);
+app.use('/api', modelo);
 
 //PAGES AND RENDERING IN DOM
 app.get('/',(req, res)=>{
@@ -32,8 +34,26 @@ app.get('/vehiculos',(req, res)=>{
     res.json(vehiculos);
 });
 
-//INITIALIZING THE SERVER IN THE SET PORT 
-app.set('port', process.env.PORT || 8083)
+app.get('/tipo_marcas',(req, res)=>{
+    let tipo_marca = []
+    tipo_marca.push({id_marca: "6", desc_marca: "3", activo:"S"})
+    res.json(tipo_marca);
+});
+
+app.get('/tipo_lineas',(req, res)=>{
+    let tipo_lineas = []
+    tipo_lineas.push({id_linea: "1", desc_linea: "DEPORTIVO", id_marca: "4", activo:"S"})
+    res.json(tipo_lineas);
+});
+
+app.get('/modelos',(req, res)=>{
+    let modelos = []
+    modelos.push({id_modelo: "6", year_modelo: "2014", desc_modelo:"XL45"})
+    res.json(modelos);
+});
+
+//INITIALIZING THE SERVER ON THE CLEVER CLOUD PORT 
+app.set('port', process.env.DB_PORT || 8083)
 app.listen(app.get('port'), ()=>{
     console.log(`Server running at port ${app.get('port')}!!`);
 });
