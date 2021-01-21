@@ -1,0 +1,462 @@
+{
+	"info": {
+		"_postman_id": "8b8494c9-0ae3-4699-9b7d-ad2202216205",
+		"name": "backend-semilleroServices",
+		"description": "In this collection are located all the services for the Semillero MySQL/Express backend practice.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Consultar los registros en vehiculos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3306/api/vehiculo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3306",
+					"path": [
+						"api",
+						"vehiculo"
+					]
+				},
+				"description": "http://localhost:5001/api/vehiculo"
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar un vehiculo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3306/api/vehiculo/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3306",
+					"path": [
+						"api",
+						"vehiculo",
+						"5"
+					]
+				},
+				"description": "http://localhost:5001/api/vehiculo/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Insertar un nuevo registro de vehiculo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nro_placa\": \"HRM874\",\r\n    \"id_linea\": 2,\r\n    \"id_modelo\": 3,\r\n    \"fecha_ven_seguro\": \"2021-10-09T06:15:56\",\r\n    \"fecha_ven_tecnomecanica\": \"2021-05-15T06:15:56\",\r\n    \"fecha_ven_contratodo\": \"2021-07-24T06:15:56\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3306/api/vehiculo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3306",
+					"path": [
+						"api",
+						"vehiculo"
+					]
+				},
+				"description": "http://localhost:5001/api/vehiculo"
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar todas las marcas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3306/api/tipo_marca",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3306",
+					"path": [
+						"api",
+						"tipo_marca"
+					]
+				},
+				"description": "http://localhost:3306/api/tipo_marca"
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar un tipo_marca",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3306/api/tipo_marca/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3306",
+					"path": [
+						"api",
+						"tipo_marca",
+						"2"
+					]
+				},
+				"description": "http://localhost:3306/api/tipo_marca/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Insertar un nuevo tipo_marca",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"desc_marca\": \"LEXUS\",\r\n    \"activo\": \"S\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3306/api/tipo_marca",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3306",
+					"path": [
+						"api",
+						"tipo_marca"
+					]
+				},
+				"description": "http://localhost:3306/api/tipo_marca"
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar todas las lineas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3306/api/tipo_linea",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3306",
+					"path": [
+						"api",
+						"tipo_linea"
+					]
+				},
+				"description": "http://localhost:3306/api/tipo_linea"
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar un tipo_linea",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3306/api/tipo_linea/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3306",
+					"path": [
+						"api",
+						"tipo_linea",
+						"2"
+					]
+				},
+				"description": "http://localhost:3306/api/tipo_linea/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar un registro en tipo_marca",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3306/api/tipo_marca/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3306",
+					"path": [
+						"api",
+						"tipo_marca",
+						"7"
+					]
+				},
+				"description": "http://localhost:3306/api/tipo_marca/7"
+			},
+			"response": []
+		},
+		{
+			"name": "Insertar un nuevo tipo_linea",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"desc_linea\": \"COLAC\",\r\n    \"id_marca\": 2,\r\n    \"activo\": \"S\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3306/api/tipo_linea",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3306",
+					"path": [
+						"api",
+						"tipo_linea"
+					]
+				},
+				"description": "http://localhost:3306/api/tipo_linea"
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar máximos y minimos vehiculo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3306/api/modelo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3306",
+					"path": [
+						"api",
+						"modelo"
+					]
+				},
+				"description": "http://localhost:3306/api/modelo"
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar vehiculo por rango de fechas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3306/api/fecha",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3306",
+					"path": [
+						"api",
+						"fecha"
+					]
+				},
+				"description": "http://localhost:3306/api/fecha"
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar cantidades repetidas (Desc_marca y desc_linea)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3306/api/linea_marca",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3306",
+					"path": [
+						"api",
+						"linea_marca"
+					]
+				},
+				"description": "http://localhost:3306/api/linea_marca"
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta de vehiculos por rango de modelo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3306/api/range_modelo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3306",
+					"path": [
+						"api",
+						"range_modelo"
+					]
+				},
+				"description": "http://localhost:3306/api/range_modelo"
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar vehiculos con registro coincidente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3306/api/vehiculo_info",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3306",
+					"path": [
+						"api",
+						"vehiculo_info"
+					]
+				},
+				"description": "http://localhost:3306/api/vehiculo_info"
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar vehiculos con registro coincidente y activos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3306/api/vehiculo_activo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3306",
+					"path": [
+						"api",
+						"vehiculo_activo"
+					]
+				},
+				"description": "http://localhost:3306/api/vehiculo_activo"
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar un registro en vehiculo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3306/api/vehiculo_actualizar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3306",
+					"path": [
+						"api",
+						"vehiculo_actualizar"
+					]
+				},
+				"description": "http://localhost:3306/api/vehiculo_actualizar"
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta de lineas activas e inactivas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3306/api/linea_active",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3306",
+					"path": [
+						"api",
+						"linea_active"
+					]
+				},
+				"description": "http://localhost:3306/api/linea_active"
+			},
+			"response": []
+		},
+		{
+			"name": "Sumar los modelos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3306/api/modelo_suma",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3306",
+					"path": [
+						"api",
+						"modelo_suma"
+					]
+				},
+				"description": "http://localhost:3306/api/modelo_suma"
+			},
+			"response": []
+		},
+		{
+			"name": "Promediar los modelos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3306/api/modelo_promedio",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3306",
+					"path": [
+						"api",
+						"modelo_promedio"
+					]
+				},
+				"description": "http://localhost:3306/api/modelo_promedio"
+			},
+			"response": []
+		}
+	]
+}
