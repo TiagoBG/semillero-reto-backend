@@ -71,7 +71,33 @@ router.get('/linea_marca', async(req,res)=>{
     }catch(e){
         console.log(e)
     }    
-    });   
+});
+
+//GET ACTIVE AND INACTIVE TIPO_LINEA
+router.get('/linea_active',(req,res)=>{
+    let activos = 0;
+    let inactivos = 0;
+    cnn_mysql.query(`SELECT vehiculos.id_linea, vehiculos.nro_placa, tipo_linea.id_linea, tipo_linea.activo FROM vehiculos INNER JOIN tipo_linea USING(id_linea)`, (error, resulset, fields)=>{
+        if(error){
+            console.log(error)
+            return res.status(500).send('On no. Se presentó un error en la base de datos')
+        }else{
+            for(let i=0; i<resulset.length; i++){
+                if(resulset[i].activo === 'S'){
+                    console.log('a')
+                    activos += 1
+                }else{
+                    console.log('i')
+                    inactivos += 1
+                }
+                console.log(activos)
+                console.log(inactivos)
+            }
+            return res.json(`Se tienen en total ${activos} vehiculos de linea activa y ${inactivos} vehiculos de linea inactiva`);                          
+        }
+    });      
+    
+});
 
 router.patch('/tipo_linea/:id',(req,res)=>{
     

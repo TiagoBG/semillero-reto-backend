@@ -40,4 +40,31 @@ router.get('/modelo',(req,res)=>{
     });
 });
 
+//TOTALIZE THE MODELOS
+router.get('/modelo_suma',(req,res)=>{
+    cnn_mysql.query(`SELECT vehiculos.id_modelo, modelo.desc_modelo, COUNT(modelo.desc_modelo) AS cantidad_modelo FROM vehiculos INNER JOIN modelo USING(id_modelo) GROUP BY modelo.desc_modelo`, (error, resulset, fields)=>{
+        if(error){
+            console.log(error)
+            return res.status(500).send('On no. Se presentó un error en la base de datos')
+        }else{
+            console.log(resulset.length);
+            return res.json(resulset);              
+        }
+    });      
+});
+
+
+//AVERAGE THE MODELOS
+router.get('/modelo_promedio',(req,res)=>{
+    cnn_mysql.query(`SELECT AVG(modelo.year_modelo) 'promedio_modelo'FROM modelo`, (error, resulset, fields)=>{
+        if(error){
+            console.log(error)
+            return res.status(500).send('On no. Se presentó un error en la base de datos')
+        }else{
+            console.log(resulset);
+            return res.json(`Los vehiculos en promedio son del año: ${Math.floor(resulset[0].promedio_modelo)}`);              
+        }
+    });      
+});
+
 module.exports = router;

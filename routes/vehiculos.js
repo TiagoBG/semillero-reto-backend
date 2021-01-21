@@ -82,8 +82,8 @@ router.post('/vehiculo', async(req,res)=>{
 });
 
 //CHECK THE MODELO RANGE
-/* router.get('/filter_modelo',(req,res)=>{
-    cnn_mysql.query(`SELECT * FROM vehiculos WHERE fecha_ven_seguro BETWEEN '2021-03-01 00:00:00' AND '2021-06-31 23:59:59'`, (error, resulset, fields)=>{
+router.get('/range_modelo',(req,res)=>{
+    cnn_mysql.query(`SELECT vehiculos.id_vehiculo, vehiculos.nro_placa AS placa, vehiculos.id_modelo, vehiculos.id_linea FROM vehiculos INNER JOIN modelo ON vehiculos.id_modelo = modelo.id_modelo WHERE modelo.year_modelo BETWEEN '2012' AND '2016'`, (error, resulset, fields)=>{
         if(error){
             console.log(error)
             return res.status(500).send('On no. Se presentó un error en la base de datos')
@@ -92,10 +92,44 @@ router.post('/vehiculo', async(req,res)=>{
             return res.json(resulset);              
         }
     });      
-}); */
+});
 
-router.put('/vehiculo/:id',(req,res)=>{
-    
+//CHECK THE VEHICLE FULL INFO
+router.get('/vehiculo_info',(req,res)=>{
+    cnn_mysql.query(`SELECT modelo.id_modelo, modelo.year_modelo, modelo.desc_modelo, vehiculos.id_modelo, vehiculos.nro_placa, vehiculos.id_linea, vehiculos.id_vehiculo, tipo_linea.id_marca, tipo_linea.desc_linea, tipo_marca.id_marca, tipo_marca.desc_marca FROM modelo, vehiculos, tipo_linea, tipo_marca GROUP BY vehiculos.id_modelo`, (error, resulset, fields)=>{
+        if(error){
+            console.log(error)
+            return res.status(500).send('On no. Se presentó un error en la base de datos')
+        }else{
+            console.log(resulset.length);
+            return res.json(resulset);              
+        }
+    });      
+});
+
+//CHECK THE VEHICLE FULL INFO JUST ACTIVES
+router.get('/vehiculo_activo',(req,res)=>{
+    cnn_mysql.query(`SELECT modelo.id_modelo, modelo.year_modelo, modelo.desc_modelo, vehiculos.id_modelo, vehiculos.nro_placa, vehiculos.id_linea, vehiculos.id_vehiculo, tipo_linea.id_marca, tipo_linea.desc_linea, tipo_linea.activo, tipo_marca.id_marca, tipo_marca.desc_marca FROM modelo, vehiculos, tipo_linea, tipo_marca WHERE tipo_linea.activo = 'S' GROUP BY vehiculos.id_modelo`, (error, resulset, fields)=>{
+        if(error){
+            console.log(error)
+            return res.status(500).send('On no. Se presentó un error en la base de datos')
+        }else{
+            console.log(resulset.length);
+            return res.json(resulset);              
+        }
+    });      
+});
+
+router.get('/vehiculo_actualizar',(req,res)=>{
+    cnn_mysql.query(`UPDATE vehiculos SET nro_placa = 'ZDX741', fecha_ven_seguro = '2022-03-27 10:00:00', fecha_ven_tecnomecanica = '2022-05-27 15:00:00', fecha_ven_contratodo = '2022-07-27 17:00:00' WHERE id_vehiculo = 15`, (error, resulset, fields)=>{
+        if(error){
+            console.log(error)
+            return res.status(500).send('On no. Se presentó un error en la base de datos')
+        }else{
+            console.log(resulset);
+            return res.json(`Se ha actualizado el vehículo del registro 17`);              
+        }
+    });      
 });
 
 router.patch('/vehiculo/:id',(req,res)=>{
